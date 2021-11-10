@@ -21,7 +21,7 @@ class GameSprite(sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.way_ball = randint(1, 4)
+        # self.way_ball = randint(1, 4)
     def blit_image(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
 
@@ -40,15 +40,15 @@ class Paddel_1(GameSprite):
 class Paddel_2(GameSprite):
     def update(self):
         keys = key.get_pressed()
-        if keys[K_S] and self.rect.y > 5:
+        if keys[K_s] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[K_W] and self.rect.y < win_width - 80:
+        if keys[K_w] and self.rect.y < win_width - 80:
             self.rect.y += self.speed
 
 ball = Ball("Ping-Pong-Ball.png", 330, 230, 40, 40, 5)
 
-paddel_1 = Paddel_1("Black Line", 20, 20, 75, 90, 5)
-paddel_2 = Paddel_2("Black Line", 500, 400, 75, 90, 5)
+paddel_1 = Paddel_1("Black line.png", 20, 20, 75, 90, 5)
+paddel_2 = Paddel_2("Black line.png", 500, 400, 75, 90, 5)
 clock = time.Clock()
 game = True
 while game:
@@ -58,7 +58,7 @@ while game:
         if e.type == QUIT:
             game = False
 
-    window.blit(background(0, 0))
+    window.blit(background, (0, 0))
 
     paddel_1.blit_image()
     paddel_2.blit_image()
