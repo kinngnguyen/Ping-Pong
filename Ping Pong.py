@@ -53,7 +53,7 @@ clock = time.Clock()
 game = True
 while game:
     keys = key.get_pressed()
-    clock.yick(60)
+    clock.tick(60)
     for e in event.get():
         if e.type == QUIT:
             game = False
