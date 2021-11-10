@@ -9,7 +9,7 @@ mixer.music.play()
 win_width = 700
 win_height = 500
 window = display.set_mode((win_width, win_height))
-display.set_caption("Ping Pong")
+display.set_caption("Water-color-BG.jpeg")
 background = transform.scale(image.load("galaxy.jpg"), (700, 500))
 
 # Game Sprite
@@ -39,5 +39,23 @@ class Paddel_2(GameSprite):
             self.rect.y -= self.speed
         if keys[K_W] and self.rect.y < win_width - 80:
             self.rect.y += self.speed
+
+class Ball(GameSprite):
+    def update(self):
+        pass
+
+ball = Ball("Ping-Pong-Ball.png", 330, 230, 40, 40, 5)
+
+paddel_1 = Paddel_1("Black Line", 20, 20, 75, 90, 5)
+paddel_2 = Paddel_2("Black Line", 500, 400, 75, 90, 5)
+clock = time.Clock()
+game = True
+while game:
+    keys = key.get_pressed()
+    clock.yick(60)
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+ 
 
 display.update()
