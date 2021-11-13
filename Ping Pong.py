@@ -32,23 +32,23 @@ class Ball(GameSprite):
 class Paddel_1(GameSprite):
     def update(self):
         keys = key.get_pressed()
-        if keys[K_DOWN] and self.rect.y > 5:
+        if keys[K_UP] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[K_UP] and self.rect.y < win_width - 80:
+        if keys[K_DOWN] and self.rect.y < win_width - 80:
             self.rect.y += self.speed
 
 class Paddel_2(GameSprite):
     def update(self):
         keys = key.get_pressed()
-        if keys[K_s] and self.rect.y > 5:
+        if keys[K_w] and self.rect.y > 5:
             self.rect.y -= self.speed
-        if keys[K_w] and self.rect.y < win_width - 80:
+        if keys[K_s] and self.rect.y < win_width - 80:
             self.rect.y += self.speed
 
 ball = Ball("Ping-Pong-Ball.png", 330, 230, 40, 40, 5)
 
-paddel_1 = Paddel_1("Black line.png", 20, 20, 75, 90, 5)
-paddel_2 = Paddel_2("Black line.png", 500, 400, 75, 90, 5)
+paddel_2 = Paddel_2("Black line.png", 20, 20, 75, 90, 6)
+paddel_1 = Paddel_1("Black line.png", 600, 400, 75, 90, 6)
 clock = time.Clock()
 game = True
 while game:
@@ -68,6 +68,4 @@ while game:
 
     ball.update()
 
-
-
-display.update()
+    display.update()
