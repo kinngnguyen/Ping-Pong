@@ -45,6 +45,10 @@ class Paddel_2(GameSprite):
         if keys[K_s] and self.rect.y < win_width - 80:
             self.rect.y += self.speed
 
+# class Bot(GameSprite):
+#     def update(self):
+#         pass
+
 font.init()
 font = font.Font(None, 35)
 lose1 = font.render('PLAYER 1 LOSE!', True, (180, 0, 0))
